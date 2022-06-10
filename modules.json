@@ -5,6 +5,9 @@
         "nf-core/modules": {
             "fastp": {
                 "git_sha": "d0a1cbb703a130c19f6796c3fce24fbe7dfce789"
+            },
+            "metaphlan3": {
+                "git_sha": "ed4dd1a928ebf4308efb720de878045f7773f8e2"
             }
         }
     }

@@ -133,3 +133,4 @@ work
 .nextflow
 results
 .DS_Store
+test/data/mpa

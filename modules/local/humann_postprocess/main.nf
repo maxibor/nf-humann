@@ -8,8 +8,7 @@ process HUMANN_POSTPROCESS {
         'quay.io/biocontainers/humann:3.0.1--pyh5e36f6f_0' }"
 
     output:
-    path()  , emit: nucleotide_db
-    path()  , emit: protein_db
+
     tuple val(meta), path('*.log')                , emit: log
     path "versions.yml"                           , emit: versions
 
@@ -28,8 +27,9 @@ process HUMANN_POSTPROCESS {
         --file_name genefamilies \\
     
     humann_renorm_table \\
-        -i hmp_subset_genefamilies.tsv \\
-        -o hmp_subset_genefamilies-cpm.tsv \\
+        -i genefamilies.tsv \\
+        -o genefamilies-cpm.tsv \\
+        --taxonomic-profile
         --units cpm
 
     cat <<-END_VERSIONS > versions.yml

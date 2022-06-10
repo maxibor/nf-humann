@@ -1,2 +1,0 @@
-genome(mandatory), insert_size(mandatory), coverage(mandatory), deamination(mandatory), mutation_rate(optional), age(optional)
-bacteroides_dorei_refseq.fna, 150 , 0.05, no

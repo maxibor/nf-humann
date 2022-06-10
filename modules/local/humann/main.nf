@@ -8,12 +8,12 @@ process HUMANN {
         'quay.io/biocontainers/humann:3.0.1--pyh5e36f6f_0' }"
 
     input:
-    tuple val(meta), path(reads)
+    tuple val(meta), path(reads), path(taxonomic_profile)
     path(nucleotide_db)
     path(protein_db)
 
     output:
-    tuple val(meta), path('*._genefamilies.tsv')  , emit: genefamilies
+    tuple val(meta), path('*_genefamilies.tsv')  , emit: genefamilies
     tuple val(meta), path('*_pathabundance.tsv')  , emit: pathabundance
     tuple val(meta), path('*_pathcoverage.tsv')   , emit: pathcoverage
     tuple val(meta), path('*.log')                , emit: log
@@ -37,6 +37,8 @@ process HUMANN {
         $args \\
         --threads ${task.cpus} \\
         --input $reads \\
+        --taxonomic-profile $taxonomic_profile \\
+        --o-log ${prefix}.log \\
         --output .
 
     cat <<-END_VERSIONS > versions.yml
