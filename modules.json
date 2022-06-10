@@ -1,0 +1,11 @@
+{
+    "name": "",
+    "homePage": "",
+    "repos": {
+        "nf-core/modules": {
+            "fastp": {
+                "git_sha": "d0a1cbb703a130c19f6796c3fce24fbe7dfce789"
+            }
+        }
+    }
+}
