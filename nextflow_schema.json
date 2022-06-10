@@ -14,7 +14,8 @@
                 "input",
                 "outdir",
                 "nucleotide_db",
-                "protein_db"
+                "protein_db",
+                "metaphlan_db"
             ],
             "properties": {
                 "input": {
@@ -43,6 +44,11 @@
                     "type": "string",
                     "description": "Path to HUMANN protein db",
                     "help_text": "Databases and their path should be created with humann. See https://github.com/biobakery/humann"
+                },
+                "metaphlan_db": {
+                    "type": "string",
+                    "description": "Path to metaphlan db",
+                    "help_text": "The database should have been create with metaphlan. See https://github.com/biobakery/metaphlan"
                 }
             }
         },
