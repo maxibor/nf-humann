@@ -41,11 +41,11 @@ Channel
 
 
 workflow  {
-    FASTP(raw_reads_ch, false, true)
+    FASTP(raw_reads_ch, params.save_trimmed_fail, params.save_merged)
 
-    METAPHLAN3(FASTP.out.reads.mix(FASTP.out.reads_merged), metaphlan_db)
+    METAPHLAN3(FASTP.out.reads_merged.mix(FASTP.out.reads), metaphlan_db)
 
-    FASTP.out.reads.mix(FASTP.out.reads_merged)
+    FASTP.out.reads.mix(FASTP.out.reads_merged.mix(FASTP.out.reads))
         .join(METAPHLAN3.out.profile, by: 0)
         .set {humann_input_ch }
 
